@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="Container">
+        <form action="" id="frm">
+            <input type="text" placeholder="0" id="input">
+        </form>
+        <div class="hero">
+            <div>
+                <button class="btns" onclick="getnumber('7')">7</button>
+                <button class="btns" onclick="getnumber('8')">8</button>
+                <button class="btns" onclick="getnumber('9')">9</button>
+                <button class="btns" onclick="deletenumber('DEL')" style="background-color: #647299;">DEL</button>
+            </div>
+            <div>
+                <button class="btns" onclick="getnumber('4')">4</button>
+                <button class="btns" onclick="getnumber('5')">5</button>
+                <button class="btns" onclick="getnumber('6')">6</button>
+                <button class="btns" onclick="getnumber('+')">+</button>
+            </div>
+            <div>
+                <button class="btns" onclick="getnumber('1')">1</button>
+                <button class="btns" onclick="getnumber('2')">2</button>
+                <button class="btns" onclick="getnumber('3')">3</button>
+                <button class="btns" onclick="getnumber('-')">-</button>
+            </div>
+            <div>
+                <button class="btns" onclick="getnumber('.')">.</button>
+                <button class="btns" onclick="getnumber('0')">0</button>
+                <button class="btns" onclick="getnumber('/')">/</button>
+                <button class="btns" onclick="getnumber('*')">*</button>
+            </div>
+            <div class="bottom">
+                <button class="btns" id="reset" onclick="allclear()" style="background-color: #647299;">RESET</button>
+                <button class="btns" id="equal" onclick="calculate()" style="background-color: #D13F30;">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getnumber(value) {
+            const input = document.getElementById('input');
+            if (input.value === '0') {
+                input.value = value;
+            } else {
+                input.value += value;
+            }
+        }
+
+        function deletenumber() {
+            const input = document.getElementById('input');
+            input.value = input.value.slice(0, -1);
+        }
+
+        function allclear() {
+            const input = document.getElementById('input');
+            input.value = '0';
+        }
+
+        function calculate() {
+            const input = document.getElementById('input');
+            input.value = eval(input.value);
+        }
+    </script>
+</body>
+
+</html>
